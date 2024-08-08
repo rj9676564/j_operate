@@ -17,11 +17,18 @@
     if ([@"getPlatformVersion" isEqualToString:call.method]) {
         result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
     } else if ([@"setup" isEqualToString:call.method]) {
+        
+        [JOPERATEService initializeSDK];
         JOPERATEConfig *config = [[JOPERATEConfig alloc] init];
-        config.appKey = call.arguments[@"key"];
-        config.advertisingId = @"";
-        config.isProduction = NO;
-        [JOPERATEService setupWithConfig:config];
+        config.appKey =call.arguments[@"key"];
+
+        [JOPERATEService operationStart:config];
+
+//        JOPERATEConfig *config = [[JOPERATEConfig alloc] init];
+//        config.appKey = call.arguments[@"key"];
+//        config.advertisingId = @"";
+//        config.isProduction = NO;
+//        [JOPERATEService setupWithConfig:config];
         
     }else if([@"setDebug" isEqualToString:call.method]){
         [JOPERATEService setDebug:call.arguments[@"debug"]];
