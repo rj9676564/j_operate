@@ -17,9 +17,9 @@ A new Flutter project.
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
   s.dependency 'JCore'
-  s.dependency 'JOperate','2.0.0'
   s.platform = :ios, '11.0'
   s.static_framework = true
+  s.vendored_frameworks = 'libs/joperate-ios-2.2.0.xcframework'
   # Flutter.framework does not contain a i386 slice.
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
